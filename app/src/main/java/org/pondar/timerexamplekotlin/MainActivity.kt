@@ -44,6 +44,11 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         //This method is called directly by the timer
         //and runs in the same thread as the timer.
 
+        //we could do updates here TO GAME LOGIC,
+        // but not updates TO ACTUAL UI
+       //gameView.move(20)  // BIG NO NO TO DO THIS!!!!
+
+
         //We call the method that will work with the UI
         //through the runOnUiThread method.
         this.runOnUiThread(Timer_Tick)
@@ -57,7 +62,9 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         if (running) {
             counter++
             //update the counter - notice this is NOT seconds in this example
-            //you need TWO counters - one for the time and one for the pacman
+            //you need TWO counters - one for the timer count down that will
+            // run every second and one for the pacman which need to run
+            //faster than every second
             textView.setText("Timer value: $counter")
             gameView.move(20)
            //move the pacman - you
