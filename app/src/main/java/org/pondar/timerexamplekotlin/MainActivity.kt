@@ -10,7 +10,7 @@ import java.util.*
 class MainActivity : AppCompatActivity(), OnClickListener {
 
     private var myTimer: Timer = Timer()
-    private var counter = 0
+    private var counter : Int = 0
     //you should put in the running in the game class
     private var running = false
 
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         //We will call the timer 5 times each second
         myTimer.schedule(object : TimerTask() {
             override fun run() {
-                TimerMethod()
+                timerMethod()
             }
 
         }, 0, 200) //0 indicates we start now, 200
@@ -40,23 +40,24 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         myTimer.cancel()
     }
 
-    private fun TimerMethod() {
+    private fun timerMethod() {
         //This method is called directly by the timer
         //and runs in the same thread as the timer.
 
         //we could do updates here TO GAME LOGIC,
         // but not updates TO ACTUAL UI
+
        //gameView.move(20)  // BIG NO NO TO DO THIS!!!!
 
 
         //We call the method that will work with the UI
         //through the runOnUiThread method.
-        this.runOnUiThread(Timer_Tick)
+        this.runOnUiThread(timerTick)
 
     }
 
 
-    private val Timer_Tick = Runnable {
+    private val timerTick = Runnable {
         //This method runs in the same thread as the UI.
         // so we can draw
         if (running) {
@@ -65,7 +66,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             //you need TWO counters - one for the timer count down that will
             // run every second and one for the pacman which need to run
             //faster than every second
-            textView.setText("Timer value: $counter")
+            textView.text = getString(R.string.timerValue,counter)
             gameView.move(20)
            //move the pacman - you
             //should call a method on your game class to move
@@ -81,10 +82,9 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             running = false
         } else if (v.id == R.id.resetButton) {
             counter = 0
-
             gameView.reset() //you should call the newGame method instead of this
             running = false
-            textView.setText("Timer value: $counter")
+            textView.text = getString(R.string.timerValue,counter)
 
         }
     }

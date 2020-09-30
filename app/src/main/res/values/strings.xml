@@ -5,5 +5,6 @@
     <string name="pause">Pause</string>
     <string name="continueLabel">Continue</string>
     <string name="reset">Reset</string>
+    <string name="timerValue">Timer Value: %1$d</string>
 
 </resources>

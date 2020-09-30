@@ -6,7 +6,6 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 
 
@@ -49,8 +48,6 @@ class GameView : View {
         //Here we get the height and weight
         h = canvas.height
         w = canvas.width
-        //update the size for the canvas to the game.
-        Log.d("GAMEVIEW", "h = $h, w = $w")
         //Making a new paint object
         val paint = Paint()
         canvas.drawColor(Color.WHITE) //clear entire canvas to white color
