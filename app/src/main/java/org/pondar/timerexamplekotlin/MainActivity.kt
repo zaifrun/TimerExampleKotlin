@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
     private var counter : Int = 0
     //you should put in the running in the game class
     private var running = false
+    private var direction = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         //we could do updates here TO GAME LOGIC,
         // but not updates TO ACTUAL UI
 
-       //gameView.move(20)  // BIG NO NO TO DO THIS!!!!
+      // gameView.move(20)  // BIG NO NO TO DO THIS - WILL CRASH ON OLDER DEVICES!!!!
 
 
         //We call the method that will work with the UI
@@ -68,6 +69,14 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             //faster than every second
             textView.text = getString(R.string.timerValue,counter)
             gameView.move(20)
+
+            if (direction==1)
+            { // game.moveUp....
+            }
+            else if (direction==2)
+            {
+
+            }
            //move the pacman - you
             //should call a method on your game class to move
             //the pacman instead of this
