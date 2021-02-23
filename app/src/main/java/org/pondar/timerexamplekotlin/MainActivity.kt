@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             // run every second and one for the pacman which need to run
             //faster than every second
             textView.text = getString(R.string.timerValue,counter)
-            gameView.move(20)
+
 
             if (direction==1)
             { // game.moveUp....
@@ -77,6 +77,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             {
 
             }
+            gameView.move(20)
            //move the pacman - you
             //should call a method on your game class to move
             //the pacman instead of this
