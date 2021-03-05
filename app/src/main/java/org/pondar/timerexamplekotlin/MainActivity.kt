@@ -11,9 +11,9 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
     private var myTimer: Timer = Timer()
     private var counter : Int = 0
-    //you should put in the running in the game class
+    //you should put the "running" and "direction" variable in the game class
     private var running = false
-    private var direction = 0
+    private var direction = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,16 +71,17 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
 
             if (direction==1)
-            { // game.moveUp....
+            { // move right
+                gameView.move(20)
+                //move the pacman - you
+                //should call a method on your game class to move
+                //the pacman instead of this - you have already made that
             }
             else if (direction==2)
             {
 
             }
-            gameView.move(20)
-           //move the pacman - you
-            //should call a method on your game class to move
-            //the pacman instead of this
+
         }
     }
 
