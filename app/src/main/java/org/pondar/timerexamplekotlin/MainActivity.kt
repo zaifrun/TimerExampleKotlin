@@ -10,10 +10,13 @@ import java.util.*
 class MainActivity : AppCompatActivity(), OnClickListener {
 
     private var myTimer: Timer = Timer()
-    private var counter : Int = 0
+    var counter : Int = 0
+    //constants for directions - define the rest yourself
+    val UP = 4
+    val RIGHT = 1
     //you should put the "running" and "direction" variable in the game class
-    private var running = false
-    private var direction = 1
+    var running = false
+    var direction = RIGHT
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +56,8 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
         //We call the method that will work with the UI
         //through the runOnUiThread method.
-        this.runOnUiThread(timerTick)
+
+      this.runOnUiThread(timerTick)
 
     }
 
@@ -70,7 +74,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             textView.text = getString(R.string.timerValue,counter)
 
 
-            if (direction==1)
+            if (direction==RIGHT)
             { // move right
                 gameView.move(20)
                 //move the pacman - you
