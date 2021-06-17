@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
-import kotlinx.android.synthetic.main.activity_main.*
+import org.pondar.timerexamplekotlin.databinding.ActivityMainBinding
 import java.util.*
 
 class MainActivity : AppCompatActivity(), OnClickListener {
@@ -18,12 +18,17 @@ class MainActivity : AppCompatActivity(), OnClickListener {
     var running = false
     var direction = RIGHT
 
+    lateinit var binding : ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        startButton.setOnClickListener(this)
-        stopButton.setOnClickListener(this)
-        resetButton.setOnClickListener(this)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
+        binding.startButton.setOnClickListener(this)
+        binding.stopButton.setOnClickListener(this)
+        binding.resetButton.setOnClickListener(this)
 
         //make a new timer
         running = true //should the game be running?
@@ -71,12 +76,12 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             //you need TWO counters - one for the timer count down that will
             // run every second and one for the pacman which need to run
             //faster than every second
-            textView.text = getString(R.string.timerValue,counter)
+            binding.textView.text = getString(R.string.timerValue,counter)
 
 
             if (direction==RIGHT)
             { // move right
-                gameView.move(20)
+                binding.gameView.move(20)
                 //move the pacman - you
                 //should call a method on your game class to move
                 //the pacman instead of this - you have already made that
@@ -97,9 +102,9 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             running = false
         } else if (v.id == R.id.resetButton) {
             counter = 0
-            gameView.reset() //you should call the newGame method instead of this
+            binding.gameView.reset() //you should call the newGame method instead of this
             running = false
-            textView.text = getString(R.string.timerValue,counter)
+            binding.textView.text = getString(R.string.timerValue,counter)
 
         }
     }
