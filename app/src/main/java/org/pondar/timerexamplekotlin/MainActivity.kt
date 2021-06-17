@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
     //constants for directions - define the rest yourself
     val UP = 4
     val RIGHT = 1
+    val LEFT = 1
     //you should put the "running" and "direction" variable in the game class
     var running = false
     var direction = RIGHT
@@ -86,9 +87,9 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 //should call a method on your game class to move
                 //the pacman instead of this - you have already made that
             }
-            else if (direction==2)
+            else if (direction==LEFT)
             {
-
+                //move pacman left.
             }
 
         }
