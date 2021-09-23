@@ -13,10 +13,11 @@ class MainActivity : AppCompatActivity(), OnClickListener {
     var counter : Int = 0
     //constants for directions - define the rest yourself
     val UP = 4
-    val RIGHT = 1
-    val LEFT = 1
+    private val RIGHT = 1
+    private val LEFT = 1
+
     //you should put the "running" and "direction" variable in the game class
-    var running = false
+    private var running = false
     var direction = RIGHT
 
     lateinit var binding : ActivityMainBinding

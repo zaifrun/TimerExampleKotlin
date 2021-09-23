@@ -27,7 +27,7 @@ class GameView : View {
     fun move(x: Int) {
         //still within our boundaries?
         if (pacx + x + bitmap.width < w)
-            pacx = pacx + x
+            pacx += x
         invalidate() //redraw everything
     }
     /* The next 3 constructors are needed for the Android view system,
@@ -46,8 +46,8 @@ class GameView : View {
     //drawn whenever we update the screen.
     override fun onDraw(canvas: Canvas) {
         //Here we get the height and weight
-        h = canvas.height
-        w = canvas.width
+        h = height
+        w = width
         //Making a new paint object
         val paint = Paint()
         canvas.drawColor(Color.WHITE) //clear entire canvas to white color
