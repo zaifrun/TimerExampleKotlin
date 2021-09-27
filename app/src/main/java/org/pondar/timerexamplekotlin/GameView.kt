@@ -30,6 +30,7 @@ class GameView : View {
             pacx += x
         invalidate() //redraw everything
     }
+
     /* The next 3 constructors are needed for the Android view system,
 	when we have a custom view.
 	 */
@@ -40,7 +41,12 @@ class GameView : View {
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {}
 
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {}
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
+    }
 
     //In the onDraw we put all our code that should be
     //drawn whenever we update the screen.
@@ -53,8 +59,9 @@ class GameView : View {
         canvas.drawColor(Color.WHITE) //clear entire canvas to white color
 
         //draw the pacman
-        canvas.drawBitmap(bitmap,pacx.toFloat()
-                ,pacy.toFloat(),paint)
+        canvas.drawBitmap(
+            bitmap, pacx.toFloat(), pacy.toFloat(), paint
+        )
 
         super.onDraw(canvas)
     }
