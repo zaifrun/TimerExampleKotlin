@@ -53,18 +53,16 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
     private fun timerMethod() {
         //This method is called directly by the timer
-        //and runs in the same thread as the timer.
+        //and runs in the same thread as the timer - i.e the background
 
         //we could do updates here TO GAME LOGIC,
         // but not updates TO ACTUAL UI
 
-      // gameView.move(20)  // BIG NO NO TO DO THIS - WILL CRASH ON OLDER DEVICES!!!!
-
-
         //We call the method that will work with the UI
         //through the runOnUiThread method.
 
-      this.runOnUiThread(timerTick)
+        this.runOnUiThread(timerTick)
+        //timerTick.run() //try doing this instead of the above...will crash the app!
 
     }
 

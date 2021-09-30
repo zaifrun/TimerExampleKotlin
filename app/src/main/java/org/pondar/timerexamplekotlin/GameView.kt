@@ -28,7 +28,7 @@ class GameView : View {
         //still within our boundaries?
         if (pacx + x + bitmap.width < w)
             pacx += x
-        invalidate() //redraw everything
+        invalidate()//redraw everything
     }
 
     /* The next 3 constructors are needed for the Android view system,
